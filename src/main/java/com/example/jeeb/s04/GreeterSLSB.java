@@ -22,6 +22,7 @@ import jakarta.ejb.Stateless;
 public class GreeterSLSB implements Greeter {
     private static final Logger log = Logger.getLogger(GreeterSLSB.class);
 
+    @Override
     public String greetings(String name) {
         return "Hello, " + name;
     }

@@ -16,6 +16,7 @@ import jakarta.ejb.Stateless;
 @Stateless
 @Remote(Adder.class)
 public class AdderSLSB implements Adder {
+    @Override
     public int add(int left, int right) {
         return left + right;
     }
