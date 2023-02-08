@@ -14,8 +14,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+/**
+ * A servlet using a JPA repository
+ */
 @SuppressWarnings("serial")
-@WebServlet("/x1/get")
+@WebServlet("/s07/region/get")
 public class GetRegionSrv extends HttpServlet {
     @Inject
     private RegionRepo repo;
@@ -23,6 +26,8 @@ public class GetRegionSrv extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getWriter().println("Result is: " + repo.get(1));
+        Integer id = Integer.valueOf(request.getParameter("id"));
+
+        response.getWriter().println("Result is: " + repo.get(id));
     }
 }
